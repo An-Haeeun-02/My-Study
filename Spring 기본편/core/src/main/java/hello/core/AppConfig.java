@@ -16,16 +16,19 @@ import org.springframework.context.annotation.Configuration;
 public class AppConfig { //구현객체 생성
     @Bean
     public MemberService memberService(){//생성자 주입 MemberService역황
+        System.out.println("AppConfig.memberService");
         return new MemberServiceImpl(memberRepository());//구현
     }
 
     @Bean
     public MemberRepository memberRepository() {//Memberrepository 역활
+        System.out.println("AppConfig.memberRepository");
         return new MemoryMemberRepository();
     }
 
     @Bean
     public OrderService orderService(){//OrderService 역할
+        System.out.println("AppConfig.orderService");
         return new OrderServiceImpl(memberRepository(), discountPolicy());
     }
 

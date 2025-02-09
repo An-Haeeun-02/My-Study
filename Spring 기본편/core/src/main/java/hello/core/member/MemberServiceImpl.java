@@ -3,7 +3,7 @@ package hello.core.member;
 public class MemberServiceImpl implements MemberService {
 
     //private MemberRepository memberRepository = new MemoryMemberRepository();
-    private MemberRepository memberRepository; //MemberServiceImpl은 추상화에만 의존함
+    private final MemberRepository memberRepository; //MemberServiceImpl은 추상화에만 의존함
 
     public MemberServiceImpl(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
@@ -20,5 +20,10 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public Member findMember(Long memberId) {
         return memberRepository.findById(memberId);
+    }
+
+    //테스트용
+    public MemberRepository getMemberRepository() {
+        return memberRepository;
     }
 }

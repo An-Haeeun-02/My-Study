@@ -25,6 +25,10 @@ public class OrderServiceImpl implements OrderService {
         int discountPrice = discountPolicy.discount(member, itemPrice); //할인정책에 넘김
 
         return new Order(memberId, itName, itemPrice, discountPrice);
+    }
 
+    //테스트용
+    public MemberRepository getMemberRepository() {
+        return memberRepository;
     }
 }
